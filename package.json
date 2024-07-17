@@ -6,7 +6,8 @@
   "scripts": {
     "test": "cypress run",
     "test:open": "cypress open",
-    "test:report": "cypress run --reporter mocha --reporter-options reportDir=cypress/reports"
+    "test:report": "cypress run --reporter mocha --reporter-options reportDir=cypress/reports",
+    "e2e:chrome": "cypress run --browser chrome"
   },
   "keywords": [],
   "author": "",

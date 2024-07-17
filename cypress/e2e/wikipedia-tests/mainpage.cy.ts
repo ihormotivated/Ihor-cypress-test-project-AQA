@@ -3,6 +3,14 @@ describe('Wikipedia Main Page Link Tests', () => {
     cy.visit('/');
   });
 
+  it('should handle invalid search input', () => {
+    const invalidTerm = '!@#$%^&*';
+    cy.get('#searchInput').type(invalidTerm);
+    cy.get('#searchform button').click();
+  
+    cy.get('.mw-search-results-info p.mw-search-nonefound').should('be.visible');
+  });
+
   it('should navigate to "From today\'s featured article"', () => {
     cy.fixture('testData.json').then((data) => {
       cy.contains(data.articleLinks.featuredArticle).click();
